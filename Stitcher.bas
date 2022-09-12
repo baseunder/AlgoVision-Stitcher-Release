@@ -78,7 +78,7 @@ Private Function diafunc(DlgItem As String, Action As Integer, SuppValue As Long
       Dim uid =  CStr((Now - New System.DateTime(1970, 1, 1)).TotalMilliseconds())
       webClient.OpenRead("http://127.0.0.1:5001/save?part="+uid)
       webClient.OpenRead("http://127.0.0.1:5001/train?part="+uid)
-      stream = webClient.OpenRead("http://127.0.0.1:5001/stitch?part=live")
+      stream = webClient.OpenRead("http://127.0.0.1:5001/stitch?part="+uid)
       LC.SetBackgroundBitmapRef(New System.Drawing.Bitmap(stream))
     ElseIf DlgItem.Equals("PushButton4") Then
       webClient.OpenRead("http://127.0.0.1:5001/train?part=calibration")
